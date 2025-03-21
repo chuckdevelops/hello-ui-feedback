@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Filter, FilterX, ChevronUp, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -15,11 +14,11 @@ interface FilterToggleProps {
   children: React.ReactNode;
 }
 
-const FilterToggle: React.FC<FilterToggleProps> = ({ 
+const FilterToggle = ({ 
   isFilterExpanded, 
   activeFilters,
   children 
-}) => {
+}: FilterToggleProps) => {
   return (
     <Collapsible className="space-y-2 mb-6">
       <CollapsibleTrigger asChild>

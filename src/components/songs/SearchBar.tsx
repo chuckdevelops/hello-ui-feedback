@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 
@@ -8,7 +7,7 @@ interface SearchBarProps {
   setSearchTerm: (value: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, setSearchTerm }) => {
+const SearchBar = ({ searchTerm, setSearchTerm }: SearchBarProps) => {
   return (
     <div className="relative mb-4">
       <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
