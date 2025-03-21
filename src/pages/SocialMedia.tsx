@@ -9,8 +9,8 @@ import {
   TableRow, 
   TableCell
 } from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
 import {
-  Badge,
   Tooltip,
   TooltipTrigger,
   TooltipContent,

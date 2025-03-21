@@ -7,13 +7,15 @@ import {
   TableBody, 
   TableHead, 
   TableRow, 
-  TableCell,
-  Badge,
+  TableCell
+} from '@/components/ui/table';
+import { Badge } from '@/components/ui/badge';
+import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider
-} from '@/components/ui/table';
+} from '@/components/ui/tooltip';
 import Header from '@/components/Header';
 import { interviews } from '@/data/interviews';
 import { Interview } from '@/types/interviews';
