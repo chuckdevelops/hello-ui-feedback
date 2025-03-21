@@ -18,7 +18,7 @@ const Header = () => {
               <Link to="/" className="nav-link">Albums</Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-link">Singles</Link>
+              <Link to="/fit-pics" className="nav-link">Fit Pics</Link>
             </li>
             <li className="nav-item flex items-center">
               <Link to="/coming-soon" className="nav-link flex items-center">
