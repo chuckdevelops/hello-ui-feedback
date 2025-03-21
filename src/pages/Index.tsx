@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import AlbumGrid from '../components/AlbumGrid';
 import AudioProvider from '../components/AudioProvider';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -182,12 +181,6 @@ const Index = () => {
               </div>
             </CardContent>
           </Card>
-          
-          {/* Album Grid remains below */}
-          <section className="mt-12">
-            <h2 className="text-2xl font-bold mb-6 text-center">Albums</h2>
-            <AlbumGrid />
-          </section>
         </main>
         <Footer />
       </div>
