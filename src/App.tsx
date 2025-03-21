@@ -12,17 +12,19 @@ import './styles/carti.css';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/fit-pics" element={<FitPics />} />
-        <Route path="/interviews" element={<Interviews />} />
-        <Route path="/social-media" element={<SocialMedia />} />
-        <Route path="/coming-soon" element={<ComingSoon />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Toaster />
-    </Router>
+    <div className="bg-black min-h-screen">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/fit-pics" element={<FitPics />} />
+          <Route path="/interviews" element={<Interviews />} />
+          <Route path="/social-media" element={<SocialMedia />} />
+          <Route path="/coming-soon" element={<ComingSoon />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Toaster />
+      </Router>
+    </div>
   );
 }
 

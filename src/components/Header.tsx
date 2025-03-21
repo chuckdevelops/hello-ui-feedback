@@ -14,9 +14,9 @@ const Header = () => {
   };
   
   return (
-    <header className="navbar w-full py-4 px-6 border-b border-gray-100 shadow-sm">
+    <header className="navbar w-full py-4 px-6 border-b border-zinc-800 shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <Link to="/" className="navbar-brand mb-3 md:mb-0">
+        <Link to="/" className="navbar-brand mb-3 md:mb-0 text-white hover:text-purple-300 transition-colors">
           CARTI CATALOG
         </Link>
         
@@ -40,7 +40,7 @@ const Header = () => {
               </li>
               <li className="nav-item flex items-center peace-sign-nav">
                 <Link to="/coming-soon" className="nav-link flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:scale-110 transition-transform text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <path d="M12 8v8M8 12h8" />
                   </svg>
@@ -53,13 +53,13 @@ const Header = () => {
             <input 
               type="search" 
               placeholder="Search" 
-              className="px-3 py-1 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-gray-400"
+              className="px-3 py-1 bg-zinc-900 text-white border border-zinc-700 rounded-l-md focus:outline-none focus:ring-1 focus:ring-purple-500"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
             <button 
               type="submit" 
-              className="px-3 py-1 bg-gray-200 text-gray-700 border border-gray-300 border-l-0 rounded-r-md hover:bg-gray-300 text-sm"
+              className="px-3 py-1 bg-zinc-800 text-zinc-300 border border-zinc-700 border-l-0 rounded-r-md hover:bg-zinc-700 text-sm transition-colors"
             >
               Search
             </button>
