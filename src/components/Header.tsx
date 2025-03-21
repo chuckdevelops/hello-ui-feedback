@@ -1,6 +1,13 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { ChevronDown } from 'lucide-react';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -30,19 +37,29 @@ const Header = () => {
                 <Link to="/songs" className="nav-link">Music</Link>
               </li>
               <li className="nav-item">
-                <Link to="/fit-pics" className="nav-link">Fit Pics</Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="nav-link flex items-center">
+                    Media <ChevronDown className="h-4 w-4 ml-1" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="bg-zinc-900 border border-zinc-700 text-zinc-200">
+                    <DropdownMenuItem asChild>
+                      <Link to="/fit-pics" className="w-full hover:bg-zinc-800">Fit Pics</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/interviews" className="w-full hover:bg-zinc-800">Interviews</Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link to="/social-media" className="w-full hover:bg-zinc-800">Social Media</Link>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </li>
-              <li className="nav-item">
-                <Link to="/interviews" className="nav-link">Interviews</Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/social-media" className="nav-link">Social Media</Link>
-              </li>
-              <li className="nav-item flex items-center peace-sign-nav">
+              <li className="nav-item peace-sign-nav">
                 <Link to="/coming-soon" className="nav-link flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:scale-110 transition-transform text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
-                    <path d="M12 8v8M8 12h8" />
+                    <line x1="12" y1="8" x2="12" y2="16" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
                   </svg>
                 </Link>
               </li>
