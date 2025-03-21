@@ -1,5 +1,4 @@
 
-import React from 'react';
 import Album from './Album';
 import { albums } from '../data/albums';
 
