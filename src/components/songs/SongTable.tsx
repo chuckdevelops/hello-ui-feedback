@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Disc, Info, Volume2, Tag, Calendar, Clock } from 'lucide-react';
@@ -117,7 +118,7 @@ const SongTable = ({
                   className="hover-scale hover:bg-white/5 border-white/20 transition-all"
                 >
                   <TableCell>
-                    <Link to={`/coming-soon?song=${song.id}`} className="text-white hover:text-white/80 transition-colors font-medium">
+                    <Link to={`/songs/${song.id}`} className="text-white hover:text-white/80 transition-colors font-medium">
                       {song.name}
                     </Link>
                     <div className="md:hidden mt-1 space-y-1">
