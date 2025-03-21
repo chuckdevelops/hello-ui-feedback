@@ -69,7 +69,7 @@ const Index = () => {
             
             <div className="text-center">
               <Button asChild size="lg">
-                <Link to="/">Browse Catalog</Link>
+                <Link to="/songs">Browse Catalog</Link>
               </Button>
             </div>
           </div>
