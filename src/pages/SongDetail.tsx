@@ -7,10 +7,11 @@ import { Card, CardHeader, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { PlayCircle, Pause, Calendar, Music, Volume2, Clock, Disc, Tag, Star, Heart, Share2, User, ArrowLeft } from 'lucide-react';
+import { PlayCircle, Pause, Calendar, Music, Volume2, Clock, Disc, Tag, Star, Heart, Share2, User, ArrowLeft, ThumbsUp, ThumbsDown } from 'lucide-react';
 import { useAudio } from '../hooks/useAudio';
 import { songs } from '../data/songs';
 import AudioProvider from '../components/AudioProvider';
+import { useToast } from "@/hooks/use-toast";
 
 const SongDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -19,6 +20,8 @@ const SongDetail = () => {
   const [song, setSong] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [userRating, setUserRating] = useState<'like' | 'dislike' | null>(null);
+  const { toast } = useToast();
   
   useEffect(() => {
     if (!id) {
@@ -90,6 +93,27 @@ const SongDetail = () => {
       playAudio(id, song.audioUrl);
     }
   };
+
+  const handleRate = (rating: 'like' | 'dislike') => {
+    setUserRating(rating);
+    
+    // Show toast notification based on rating
+    if (rating === 'like') {
+      toast({
+        title: "Thanks for your feedback!",
+        description: `You liked "${song.name}"`,
+      });
+    } else {
+      toast({
+        title: "Thanks for your feedback!",
+        description: `You disliked "${song.name}"`,
+        variant: "destructive",
+      });
+    }
+    
+    // In a real app, you would send this rating to your backend
+    console.log(`User rated song ${song.id} as ${rating}`);
+  };
   
   return (
     <AudioProvider>
@@ -123,6 +147,28 @@ const SongDetail = () => {
                           <><PlayCircle className="h-5 w-5 mr-2" /> Play Preview</>
                         }
                       </Button>
+                      
+                      {/* Rating Buttons */}
+                      <div className="mt-4 flex justify-between">
+                        <Button
+                          variant={userRating === 'like' ? 'default' : 'outline'}
+                          size="lg"
+                          className={`w-[48%] ${userRating === 'like' ? 'bg-green-600 hover:bg-green-700' : 'border-white/20 text-white hover:bg-white/10'}`}
+                          onClick={() => handleRate('like')}
+                        >
+                          <ThumbsUp className="mr-2 h-5 w-5" />
+                          Like
+                        </Button>
+                        <Button
+                          variant={userRating === 'dislike' ? 'default' : 'outline'}
+                          size="lg"
+                          className={`w-[48%] ${userRating === 'dislike' ? 'bg-red-600 hover:bg-red-700' : 'border-white/20 text-white hover:bg-white/10'}`}
+                          onClick={() => handleRate('dislike')}
+                        >
+                          <ThumbsDown className="mr-2 h-5 w-5" />
+                          Dislike
+                        </Button>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
