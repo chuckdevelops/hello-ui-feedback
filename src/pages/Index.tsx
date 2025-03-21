@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { albums } from '@/data/albums';
-import { ArrowRight, Music, Calendar, ListMusic } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 // Mock data for recent songs
 const recentSongs = [
@@ -55,14 +55,12 @@ const Index = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
               <Card className="bg-black/40 border border-white/10 text-white card-glow">
                 <CardContent className="text-center py-8 flex flex-col items-center">
-                  <ListMusic className="mb-3 h-8 w-8 text-white/60" />
                   <h2 className="text-4xl font-bold text-white">{recentSongs.length}</h2>
                   <p className="text-white/60">Total Songs & Videos</p>
                 </CardContent>
               </Card>
               <Card className="bg-black/40 border border-white/10 text-white card-glow">
                 <CardContent className="text-center py-8 flex flex-col items-center">
-                  <Calendar className="mb-3 h-8 w-8 text-white/60" />
                   <h2 className="text-4xl font-bold text-white">{eraCount}</h2>
                   <p className="text-white/60">Distinct Eras</p>
                 </CardContent>

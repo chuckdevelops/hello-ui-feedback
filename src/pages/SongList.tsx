@@ -73,20 +73,20 @@ const SongList = () => {
   
   return (
     <AudioProvider>
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-black text-white">
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8">
           <h1 className="text-3xl font-bold mb-6 carti-font">Song Catalog</h1>
           
           {/* Filters */}
-          <Card className="mb-6">
+          <Card className="mb-6 bg-black/40 border border-white/10 text-white">
             <CardHeader>
-              <h2 className="text-xl font-semibold">Filters</h2>
+              <h2 className="text-xl font-semibold text-white">Filters</h2>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
-                  <label htmlFor="search" className="block text-sm font-medium mb-1">
+                  <label htmlFor="search" className="block text-sm font-medium mb-1 text-white/80">
                     Search
                   </label>
                   <Input
@@ -95,16 +95,17 @@ const SongList = () => {
                     placeholder="Search by name or era..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    className="bg-black/30 border-white/10 text-white placeholder:text-white/50"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="era" className="block text-sm font-medium mb-1">
+                  <label htmlFor="era" className="block text-sm font-medium mb-1 text-white/80">
                     Era
                   </label>
                   <select
                     id="era"
-                    className="w-full p-2 border border-gray-300 rounded-md"
+                    className="w-full p-2 rounded-md bg-black/30 border border-white/10 text-white"
                     value={eraFilter}
                     onChange={(e) => setEraFilter(e.target.value)}
                   >
@@ -116,12 +117,12 @@ const SongList = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="type" className="block text-sm font-medium mb-1">
+                  <label htmlFor="type" className="block text-sm font-medium mb-1 text-white/80">
                     Type
                   </label>
                   <select
                     id="type"
-                    className="w-full p-2 border border-gray-300 rounded-md"
+                    className="w-full p-2 rounded-md bg-black/30 border border-white/10 text-white"
                     value={typeFilter}
                     onChange={(e) => setTypeFilter(e.target.value)}
                   >
@@ -133,7 +134,7 @@ const SongList = () => {
                 </div>
                 
                 <div className="flex items-end">
-                  <Button onClick={clearFilters} variant="outline" className="w-full">
+                  <Button onClick={clearFilters} variant="outline" className="w-full border-white/10 text-white hover:bg-white/10">
                     Clear Filters
                   </Button>
                 </div>
@@ -142,11 +143,11 @@ const SongList = () => {
           </Card>
           
           {/* Songs Table */}
-          <Card>
+          <Card className="bg-black/40 border border-white/10 text-white">
             <CardContent className="p-0">
               <Table>
-                <TableHeader className="bg-gray-900 text-white">
-                  <TableRow>
+                <TableHeader className="bg-black/50">
+                  <TableRow className="border-white/10">
                     <TableHead className="text-white">Name</TableHead>
                     <TableHead className="text-white">Era</TableHead>
                     <TableHead className="text-white">Sheet Tab</TableHead>
@@ -157,30 +158,30 @@ const SongList = () => {
                 </TableHeader>
                 <TableBody>
                   {filteredSongs.map(song => (
-                    <TableRow key={song.id} className="hover:bg-gray-50">
+                    <TableRow key={song.id} className="hover:bg-white/5 border-white/10">
                       <TableCell>
-                        <Link to={`/coming-soon?song=${song.id}`} className="text-blue-600 hover:underline">
+                        <Link to={`/coming-soon?song=${song.id}`} className="text-white hover:text-white/80 transition-colors">
                           {song.name}
                         </Link>
                       </TableCell>
-                      <TableCell>
-                        {song.era || <em className="text-gray-500">Unknown</em>}
+                      <TableCell className="text-white/80">
+                        {song.era || <em className="text-white/50">Unknown</em>}
                       </TableCell>
                       <TableCell>
                         {song.primary_tab_name && song.primary_tab_name !== "Unknown" ? (
                           <>
-                            {song.primary_tab_name}
+                            <span className="text-white">{song.primary_tab_name}</span>
                             {song.subsection_name && (
-                              <small className="text-gray-500 ml-1">({song.subsection_name})</small>
+                              <small className="text-white/50 ml-1">({song.subsection_name})</small>
                             )}
                           </>
                         ) : (
-                          <em className="text-gray-500">Unknown</em>
+                          <em className="text-white/50">Unknown</em>
                         )}
                       </TableCell>
-                      <TableCell>{formatType(song.type)}</TableCell>
-                      <TableCell>{song.quality}</TableCell>
-                      <TableCell>{song.leak_date}</TableCell>
+                      <TableCell className="text-white/80">{formatType(song.type)}</TableCell>
+                      <TableCell className="text-white/80">{song.quality}</TableCell>
+                      <TableCell className="text-white/80">{song.leak_date}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
