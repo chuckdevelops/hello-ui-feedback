@@ -61,3 +61,24 @@
 .album-img.spin-temp {
   animation: spin 15s linear infinite;
 }
+
+/* Coming Soon page styles */
+.coming-soon-container {
+  min-height: 80vh;
+}
+
+.coming-soon-text {
+  font-size: 3rem;
+  letter-spacing: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .coming-soon-text {
+    font-size: 5rem;
+  }
+}
+
+.back-link a {
+  transition: color 0.3s ease;
+}
+
