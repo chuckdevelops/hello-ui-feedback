@@ -86,7 +86,7 @@ const Index = () => {
                     {recentSongs.slice(0, 5).map(song => (
                       <Link 
                         key={song.id}
-                        to={`/coming-soon?song=${song.id}`}
+                        to={`/songs/${song.id}`}
                         className="block p-3 border border-gray-100 rounded-md hover:bg-gray-50 transition-colors"
                       >
                         {song.name}
@@ -152,7 +152,7 @@ const Index = () => {
                     {recentSongs.map(song => (
                       <tr key={song.id} className="border-b hover:bg-gray-50">
                         <td className="px-4 py-3">
-                          <Link to={`/coming-soon?song=${song.id}`} className="text-blue-600 hover:underline">
+                          <Link to={`/songs/${song.id}`} className="text-blue-600 hover:underline">
                             {song.name}
                           </Link>
                         </td>

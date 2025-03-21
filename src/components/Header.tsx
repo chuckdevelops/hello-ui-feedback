@@ -23,13 +23,8 @@ const Header = () => {
   return (
     <header className="navbar w-full py-4 px-6 border-b border-zinc-800 shadow-lg">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-        <Link to="/" className="navbar-brand mb-3 md:mb-0 text-white hover:text-purple-300 transition-colors flex items-center">
+        <Link to="/" className="navbar-brand mb-3 md:mb-0 text-white hover:text-purple-300 transition-colors">
           CARTI CATALOG
-          <span className="album-row ml-2 flex items-center">
-            <img className="album-icon spin mx-1" src="https://cache.umusic.com/_sites/playboicarti.com/images/products/CD13-375x375-1.png" alt="Whole Lotta Red" />
-            <img className="album-icon mx-1" src="https://cache.umusic.com/_sites/playboicarti.com/images/products/CD10-375x375-1.png" alt="Die Lit" />
-            <img className="album-icon mx-1" src="https://cache.umusic.com/_sites/playboicarti.com/images/products/CD11-375x375-1.png" alt="Self Titled" />
-          </span>
         </Link>
         
         <div className="flex flex-col md:flex-row items-center w-full md:w-auto">
