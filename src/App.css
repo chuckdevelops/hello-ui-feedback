@@ -56,3 +56,31 @@ body {
 .card-glow:hover {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
+
+/* Purple accent for key elements */
+.accent-purple {
+  color: #9b87f5;
+}
+
+.border-accent {
+  border-color: rgba(155, 135, 245, 0.3);
+}
+
+/* Improved glass effect */
+.glass {
+  background: rgba(10, 10, 15, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Improved animations */
+@keyframes pulse-subtle {
+  0% { opacity: 0.8; }
+  50% { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.pulse-subtle {
+  animation: pulse-subtle 3s infinite ease-in-out;
+}
