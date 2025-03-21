@@ -79,14 +79,14 @@ const SongList = () => {
           <h1 className="text-3xl font-bold mb-6 carti-font">Song Catalog</h1>
           
           {/* Filters */}
-          <Card className="mb-6 bg-black/40 border border-white/10 text-white">
+          <Card className="mb-6 bg-black border border-white/20 text-white">
             <CardHeader>
               <h2 className="text-xl font-semibold text-white">Filters</h2>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
-                  <label htmlFor="search" className="block text-sm font-medium mb-1 text-white/80">
+                  <label htmlFor="search" className="block text-sm font-medium mb-1 text-white">
                     Search
                   </label>
                   <Input
@@ -95,17 +95,17 @@ const SongList = () => {
                     placeholder="Search by name or era..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="bg-black/30 border-white/10 text-white placeholder:text-white/50"
+                    className="bg-black/80 border-white/20 text-white placeholder:text-white/50"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="era" className="block text-sm font-medium mb-1 text-white/80">
+                  <label htmlFor="era" className="block text-sm font-medium mb-1 text-white">
                     Era
                   </label>
                   <select
                     id="era"
-                    className="w-full p-2 rounded-md bg-black/30 border border-white/10 text-white"
+                    className="w-full p-2 rounded-md bg-black border border-white/20 text-white"
                     value={eraFilter}
                     onChange={(e) => setEraFilter(e.target.value)}
                   >
@@ -117,12 +117,12 @@ const SongList = () => {
                 </div>
                 
                 <div>
-                  <label htmlFor="type" className="block text-sm font-medium mb-1 text-white/80">
+                  <label htmlFor="type" className="block text-sm font-medium mb-1 text-white">
                     Type
                   </label>
                   <select
                     id="type"
-                    className="w-full p-2 rounded-md bg-black/30 border border-white/10 text-white"
+                    className="w-full p-2 rounded-md bg-black border border-white/20 text-white"
                     value={typeFilter}
                     onChange={(e) => setTypeFilter(e.target.value)}
                   >
@@ -134,7 +134,7 @@ const SongList = () => {
                 </div>
                 
                 <div className="flex items-end">
-                  <Button onClick={clearFilters} variant="outline" className="w-full border-white/10 text-white hover:bg-white/10">
+                  <Button onClick={clearFilters} variant="outline" className="w-full border-white/20 text-white hover:bg-white/10">
                     Clear Filters
                   </Button>
                 </div>
@@ -143,11 +143,11 @@ const SongList = () => {
           </Card>
           
           {/* Songs Table */}
-          <Card className="bg-black/40 border border-white/10 text-white">
+          <Card className="bg-black border border-white/20 text-white">
             <CardContent className="p-0">
               <Table>
-                <TableHeader className="bg-black/50">
-                  <TableRow className="border-white/10">
+                <TableHeader className="bg-black">
+                  <TableRow className="border-white/20">
                     <TableHead className="text-white">Name</TableHead>
                     <TableHead className="text-white">Era</TableHead>
                     <TableHead className="text-white">Sheet Tab</TableHead>
@@ -158,13 +158,13 @@ const SongList = () => {
                 </TableHeader>
                 <TableBody>
                   {filteredSongs.map(song => (
-                    <TableRow key={song.id} className="hover:bg-white/5 border-white/10">
+                    <TableRow key={song.id} className="hover:bg-white/5 border-white/20">
                       <TableCell>
                         <Link to={`/coming-soon?song=${song.id}`} className="text-white hover:text-white/80 transition-colors">
                           {song.name}
                         </Link>
                       </TableCell>
-                      <TableCell className="text-white/80">
+                      <TableCell className="text-white">
                         {song.era || <em className="text-white/50">Unknown</em>}
                       </TableCell>
                       <TableCell>
@@ -172,16 +172,16 @@ const SongList = () => {
                           <>
                             <span className="text-white">{song.primary_tab_name}</span>
                             {song.subsection_name && (
-                              <small className="text-white/50 ml-1">({song.subsection_name})</small>
+                              <small className="text-white/70 ml-1">({song.subsection_name})</small>
                             )}
                           </>
                         ) : (
                           <em className="text-white/50">Unknown</em>
                         )}
                       </TableCell>
-                      <TableCell className="text-white/80">{formatType(song.type)}</TableCell>
-                      <TableCell className="text-white/80">{song.quality}</TableCell>
-                      <TableCell className="text-white/80">{song.leak_date}</TableCell>
+                      <TableCell className="text-white">{formatType(song.type)}</TableCell>
+                      <TableCell className="text-white">{song.quality}</TableCell>
+                      <TableCell className="text-white">{song.leak_date}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
