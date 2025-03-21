@@ -30,9 +30,9 @@ const FitPics = () => {
   // Filter fitpics based on current filters
   const filteredFitPics = fitpics.filter(pic => {
     return (
-      (filters.era === '' || pic.era === filters.era) &&
-      (filters.type === '' || pic.pic_type === filters.type) &&
-      (filters.quality === '' || pic.quality === filters.quality) &&
+      (filters.era === '' || filters.era === 'all' || pic.era === filters.era) &&
+      (filters.type === '' || filters.type === 'all' || pic.pic_type === filters.type) &&
+      (filters.quality === '' || filters.quality === 'all' || pic.quality === filters.quality) &&
       (filters.query === '' || 
         pic.caption.toLowerCase().includes(filters.query.toLowerCase()) ||
         (pic.photographer && pic.photographer.toLowerCase().includes(filters.query.toLowerCase())) ||
@@ -51,9 +51,9 @@ const FitPics = () => {
   // Update URL when filters change
   useEffect(() => {
     const params = new URLSearchParams();
-    if (filters.era) params.set('era', filters.era);
-    if (filters.type) params.set('type', filters.type);
-    if (filters.quality) params.set('quality', filters.quality);
+    if (filters.era && filters.era !== 'all') params.set('era', filters.era);
+    if (filters.type && filters.type !== 'all') params.set('type', filters.type);
+    if (filters.quality && filters.quality !== 'all') params.set('quality', filters.quality);
     if (filters.query) params.set('q', filters.query);
     if (filters.page > 1) params.set('page', filters.page.toString());
     setSearchParams(params);

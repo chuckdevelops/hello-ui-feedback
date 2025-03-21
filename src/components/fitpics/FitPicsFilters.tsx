@@ -33,7 +33,7 @@ const FitPicsFilterComponent: React.FC<FitPicsFiltersProps> = ({
                 <SelectValue placeholder="All Eras" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Eras</SelectItem>
+                <SelectItem value="all">All Eras</SelectItem>
                 {eras.map(era => (
                   <SelectItem key={era} value={era}>{era}</SelectItem>
                 ))}
@@ -51,7 +51,7 @@ const FitPicsFilterComponent: React.FC<FitPicsFiltersProps> = ({
                 <SelectValue placeholder="All Types" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Types</SelectItem>
+                <SelectItem value="all">All Types</SelectItem>
                 {picTypes.map(type => (
                   <SelectItem key={type} value={type}>{type}</SelectItem>
                 ))}
@@ -69,7 +69,7 @@ const FitPicsFilterComponent: React.FC<FitPicsFiltersProps> = ({
                 <SelectValue placeholder="All Qualities" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">All Qualities</SelectItem>
+                <SelectItem value="all">All Qualities</SelectItem>
                 {qualities.map(quality => (
                   <SelectItem key={quality} value={quality}>{quality}</SelectItem>
                 ))}
