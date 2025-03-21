@@ -88,6 +88,11 @@ const FitPics = () => {
     setIsDialogOpen(true);
   };
   
+  // Function to handle image loading errors
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = '/placeholder.svg'; // Use default placeholder
+  };
+  
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Header />
@@ -180,7 +185,12 @@ const FitPics = () => {
               <Card key={fitpic.id} className="overflow-hidden h-full flex flex-col">
                 <div className="h-64 overflow-hidden">
                   {fitpic.thumbnail ? (
-                    <img src={fitpic.thumbnail} alt={fitpic.caption} className="w-full h-full object-cover" />
+                    <img 
+                      src={fitpic.thumbnail} 
+                      alt={fitpic.caption} 
+                      className="w-full h-full object-cover"
+                      onError={handleImageError} 
+                    />
                   ) : (
                     <div className="h-full flex items-center justify-center bg-gray-100">
                       <span className="text-gray-400 text-4xl">👕</span>
@@ -273,7 +283,12 @@ const FitPics = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   {selectedFitPic.thumbnail ? (
-                    <img src={selectedFitPic.thumbnail} alt={selectedFitPic.caption} className="w-full rounded-md" />
+                    <img 
+                      src={selectedFitPic.thumbnail} 
+                      alt={selectedFitPic.caption} 
+                      className="w-full rounded-md"
+                      onError={handleImageError}
+                    />
                   ) : (
                     <div className="w-full h-64 flex items-center justify-center bg-gray-100 rounded-md">
                       <span className="text-gray-400 text-6xl">👕</span>
