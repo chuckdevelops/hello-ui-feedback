@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -12,7 +13,7 @@ import {
   TooltipTrigger,
   TooltipContent,
   TooltipProvider
-} from '@/components/ui';
+} from '@/components/ui/table';
 import Header from '@/components/Header';
 import { interviews } from '@/data/interviews';
 import { Interview } from '@/types/interviews';
@@ -51,7 +52,7 @@ const Interviews = () => {
     
     // Filter by type
     if (filters.type !== 'all') {
-      results = results.filter(interview => interview.type === filters.type);
+      results = results.filter(interview => interview.interview_type === filters.type);
     }
     
     // Filter by search query
@@ -204,10 +205,10 @@ const Interviews = () => {
                       </TableCell>
                       <TableCell>
                         <Badge 
-                          variant={interview.type === "Video" ? "outline" : "secondary"} 
-                          className={interview.type === "Video" ? "bg-zinc-900 border-zinc-700" : "bg-zinc-800"}
+                          variant={interview.interview_type === "Video" ? "outline" : "secondary"} 
+                          className={interview.interview_type === "Video" ? "bg-zinc-900 border-zinc-700" : "bg-zinc-800"}
                         >
-                          {interview.type}
+                          {interview.interview_type}
                         </Badge>
                       </TableCell>
                     </TableRow>

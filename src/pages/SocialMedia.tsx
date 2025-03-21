@@ -7,15 +7,17 @@ import {
   TableBody, 
   TableHead, 
   TableRow, 
-  TableCell,
+  TableCell
+} from '@/components/ui/table';
+import {
   Badge,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
   TooltipProvider
-} from '@/components/ui';
+} from '@/components/ui/tooltip';
 import Header from '@/components/Header';
-import { socialmediaAccounts } from '@/data/socialmedia';
+import { socialMediaAccounts } from '@/data/socialmedia';
 import { SocialMediaAccount, SocialMediaFilters } from '@/types/socialmedia';
 import { 
   ToggleGroup, 
@@ -25,7 +27,7 @@ import { Input } from '@/components/ui/input';
 import { AlertCircle, Instagram, Twitter } from 'lucide-react';
 
 const SocialMedia = () => {
-  const [socialMediaAccounts, setSocialMediaAccounts] = useState<SocialMediaAccount[]>([]);
+  const [accounts, setSocialMediaAccounts] = useState<SocialMediaAccount[]>([]);
   const [filteredAccounts, setFilteredAccounts] = useState<SocialMediaAccount[]>([]);
   const [filters, setFilters] = useState<SocialMediaFilters>({
     era: 'all',
@@ -40,12 +42,12 @@ const SocialMedia = () => {
   
   useEffect(() => {
     // Fetch data
-    setSocialMediaAccounts(socialmediaAccounts);
+    setSocialMediaAccounts(socialMediaAccounts);
   }, []);
   
   useEffect(() => {
     // Apply filters
-    let results = socialMediaAccounts;
+    let results = accounts;
     
     // Filter by era
     if (filters.era !== 'all') {
@@ -74,7 +76,7 @@ const SocialMedia = () => {
     }
     
     setFilteredAccounts(results);
-  }, [socialMediaAccounts, filters]);
+  }, [accounts, filters]);
   
   // Get current page items
   const indexOfLastItem = filters.page * itemsPerPage;
