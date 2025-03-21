@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -13,11 +12,11 @@ interface FitPicsFiltersProps {
   onClearFilters: () => void;
 }
 
-const FitPicsFilterComponent: React.FC<FitPicsFiltersProps> = ({ 
+const FitPicsFilterComponent = ({ 
   filters, 
   onFilterChange, 
   onClearFilters 
-}) => {
+}: FitPicsFiltersProps) => {
   return (
     <Card className="mb-6">
       <CardContent className="pt-6">

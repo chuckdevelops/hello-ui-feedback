@@ -1,17 +1,11 @@
 
-import React from 'react';
-import { FitPic } from '@/types/fitpics';
-import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-
 interface FitPicCardProps {
   fitpic: FitPic;
   onShowDetails: (fitpic: FitPic) => void;
   onImageError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 }
 
-const FitPicCard: React.FC<FitPicCardProps> = ({ fitpic, onShowDetails, onImageError }) => {
+const FitPicCard = ({ fitpic, onShowDetails, onImageError }: FitPicCardProps) => {
   return (
     <Card key={fitpic.id} className="overflow-hidden h-full flex flex-col">
       <div className="h-64 overflow-hidden">
@@ -51,5 +45,10 @@ const FitPicCard: React.FC<FitPicCardProps> = ({ fitpic, onShowDetails, onImageE
     </Card>
   );
 };
+
+import { FitPic } from '@/types/fitpics';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default FitPicCard;

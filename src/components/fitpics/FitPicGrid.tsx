@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { FitPic } from '@/types/fitpics';
 import FitPicCard from './FitPicCard';
 import { Pagination, PaginationContent, PaginationEllipsis, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
@@ -13,14 +12,14 @@ interface FitPicGridProps {
   onImageError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 }
 
-const FitPicGrid: React.FC<FitPicGridProps> = ({
+const FitPicGrid = ({
   fitpics,
   currentPage,
   totalPages,
   onPageChange,
   onShowDetails,
   onImageError
-}) => {
+}: FitPicGridProps) => {
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">

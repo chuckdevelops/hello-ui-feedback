@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { FitPic } from '@/types/fitpics';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
@@ -11,12 +10,12 @@ interface FitPicDetailsProps {
   onImageError: (e: React.SyntheticEvent<HTMLImageElement, Event>) => void;
 }
 
-const FitPicDetails: React.FC<FitPicDetailsProps> = ({
+const FitPicDetails = ({
   fitpic,
   isOpen,
   onOpenChange,
   onImageError
-}) => {
+}: FitPicDetailsProps) => {
   if (!fitpic) return null;
   
   return (

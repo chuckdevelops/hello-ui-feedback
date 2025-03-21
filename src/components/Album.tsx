@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useAudio } from '../hooks/useAudio';
 
 interface AlbumProps {
