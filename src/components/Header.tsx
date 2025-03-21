@@ -32,6 +32,9 @@ const Header = () => {
               <li className="nav-item">
                 <Link to="/fit-pics" className="nav-link">Fit Pics</Link>
               </li>
+              <li className="nav-item">
+                <Link to="/interviews" className="nav-link">Interviews</Link>
+              </li>
               <li className="nav-item flex items-center peace-sign-nav">
                 <Link to="/coming-soon" className="nav-link flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

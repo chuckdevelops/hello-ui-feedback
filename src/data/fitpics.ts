@@ -1,178 +1,139 @@
 
-import { FitPic } from "../types/fitpics";
+import { FitPic } from '@/types/fitpics';
 
-export const fitPicsData: FitPic[] = [
+// Available eras for fit pics
+export const eras = [
+  'Pre-Die Lit',
+  'Die Lit Era',
+  'WLR V1',
+  'WLR V2',
+  'WLR V3',
+  'Post-WLR',
+  'Narcissist'
+];
+
+// Types of fit pics
+export const picTypes = [
+  'Photoshoot',
+  'Concert',
+  'Candid',
+  'Interview',
+  'Music Video',
+  'Event'
+];
+
+// Quality ratings
+export const qualities = [
+  'HQ',
+  'Good',
+  'Medium',
+  'Low'
+];
+
+// Sample fit pics data
+export const fitpics: FitPic[] = [
   {
     id: 1,
-    caption: "Carti at Paris Fashion Week",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-fashion1.jpg",
+    caption: "Rick Owens Outfit at Paris Fashion Week",
+    thumbnail: "https://i.imgur.com/JfFjYV4.jpg",
     release_date: "2022-01-15",
-    photographer: "Fashion Weekly",
+    photographer: "Unknown",
     pic_type: "Event",
-    quality: "HD",
-    era: "Narcissist",
+    quality: "HQ",
+    era: "Post-WLR",
     portion: "Full Body",
-    notes: "Carti wearing Rick Owens full ensemble at Paris Fashion Week",
-    source_links: ["https://example.com/carti-paris"]
+    notes: "Carti was spotted wearing a full Rick Owens outfit during Paris Fashion Week.",
+    source_links: ["https://twitter.com/playboicarti/status/1483141997772738562"]
   },
   {
     id: 2,
-    caption: "Carti Studio Session",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-studio.jpg",
-    release_date: "2021-05-20",
-    photographer: "Complex Magazine",
-    pic_type: "Candid",
-    quality: "Medium",
-    era: "Whole Lotta Red",
-    portion: "Half Body",
-    notes: "In studio with leather jacket and sunglasses",
-    source_links: ["https://example.com/carti-studio"]
+    caption: "Dior Fashion Show",
+    thumbnail: "https://i.imgur.com/8jGXvNH.jpg",
+    release_date: "2021-06-25",
+    photographer: "Paolo Roversi",
+    pic_type: "Photoshoot",
+    quality: "HQ",
+    era: "Post-WLR",
+    portion: "Full Body",
+    notes: "Photoshoot for Dior Homme campaign featuring Carti in all-black attire.",
+    source_links: ["https://www.vogue.com/fashion-shows/spring-2022-menswear/dior-homme"]
   },
   {
     id: 3,
-    caption: "Rolling Loud Performance",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-rl.jpg",
-    release_date: "2021-12-10",
+    caption: "Rolling Loud Miami",
+    thumbnail: "https://i.imgur.com/P5dqYvQ.jpg",
+    release_date: "2021-07-24",
     photographer: "Rolling Loud",
-    pic_type: "Performance",
-    quality: "HD",
-    era: "Whole Lotta Red",
+    pic_type: "Concert",
+    quality: "Good",
+    era: "Post-WLR",
     portion: "Full Body",
-    notes: "Wearing custom Givenchy leather outfit",
-    source_links: ["https://example.com/rolling-loud"]
+    notes: "Performance at Rolling Loud Miami 2021 showing the iconic WLR tour outfit.",
+    source_links: ["https://www.rollingstone.com/music/music-news/rolling-loud-miami-2021-highlights-1198429/"]
   },
   {
     id: 4,
-    caption: "Magazine Cover Shoot",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-magazine.jpg",
-    release_date: "2020-09-05",
-    photographer: "GQ Magazine",
-    pic_type: "Photoshoot",
-    quality: "HD",
-    era: "Die Lit",
+    caption: "Givenchy Fashion Show",
+    thumbnail: "https://i.imgur.com/YgH3nrb.jpg",
+    release_date: "2021-10-03",
+    photographer: "Givenchy",
+    pic_type: "Event",
+    quality: "HQ",
+    era: "Post-WLR",
     portion: "Full Body",
-    notes: "Featured on cover of September issue",
-    source_links: ["https://example.com/gq-cover"]
+    notes: "Carti attending the Givenchy Spring/Summer 2022 show in Paris.",
+    source_links: ["https://www.vogue.com/fashion-shows/spring-2022-ready-to-wear/givenchy"]
   },
   {
     id: 5,
-    caption: "Backstage with A$AP Rocky",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-asap.jpg",
-    release_date: "2019-08-12",
-    photographer: "Tour Photographer",
-    pic_type: "Candid",
-    quality: "Medium",
-    era: "Die Lit",
-    portion: "Half Body",
-    notes: "Backstage during tour with A$AP Rocky",
-    source_links: ["https://example.com/backstage"]
+    caption: "XXL Photoshoot",
+    thumbnail: "https://i.imgur.com/3XfCQHr.jpg",
+    release_date: "2017-06-13",
+    photographer: "XXL Magazine",
+    pic_type: "Photoshoot",
+    quality: "HQ",
+    era: "Pre-Die Lit",
+    portion: "Full Body",
+    notes: "XXL Freshman cover photoshoot featuring Carti.",
+    source_links: ["https://xxlmag.com/2017-xxl-freshman-class/"]
   },
   {
     id: 6,
-    caption: "Album Release Party",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-release.jpg",
+    caption: "WLR Album Cover Shoot",
+    thumbnail: "https://i.imgur.com/fUvpbmQ.jpg",
     release_date: "2020-12-25",
-    photographer: "Complex",
-    pic_type: "Event",
-    quality: "Low",
-    era: "Whole Lotta Red",
-    portion: "Full Body",
-    notes: "At the WLR release party",
-    source_links: ["https://example.com/wlr-party"]
+    photographer: "Art Dealer",
+    pic_type: "Photoshoot",
+    quality: "HQ",
+    era: "WLR V3",
+    portion: "Upper Body",
+    notes: "Iconic photoshoot for the Whole Lotta Red album cover.",
+    source_links: ["https://www.instagram.com/p/CJNfYZcAGeD/"]
   },
   {
     id: 7,
-    caption: "Music Video Shoot",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-mv.jpg",
-    release_date: "2018-05-11",
-    photographer: "AWGE",
-    pic_type: "Behind The Scenes",
-    quality: "HD",
-    era: "Self Titled",
+    caption: "Narcissist Tour Announcement",
+    thumbnail: "https://i.imgur.com/Lq5n5y7.jpg",
+    release_date: "2021-09-01",
+    photographer: null,
+    pic_type: "Promotional",
+    quality: "Medium",
+    era: "Narcissist",
     portion: "Full Body",
-    notes: "Behind the scenes of 'Magnolia' music video",
-    source_links: ["https://example.com/magnolia-bts"]
+    notes: "Image used for the Narcissist tour announcement.",
+    source_links: ["https://www.instagram.com/p/CTSfwKtrJV2/"]
   },
   {
     id: 8,
-    caption: "Carti x Balmain",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-balmain.jpg",
-    release_date: "2022-03-02",
-    photographer: "Balmain",
-    pic_type: "Advertisement",
-    quality: "HD",
-    era: "Narcissist",
-    portion: "Full Body",
-    notes: "Campaign with Balmain Spring Collection",
-    source_links: ["https://example.com/balmain"]
-  },
-  {
-    id: 9,
-    caption: "Concert in New York",
-    thumbnail: "https://cache.umusic.com/_sites/playboicarti.com/images/products/carti-ny.jpg",
-    release_date: "2021-07-18",
+    caption: "Magnolia Music Video",
+    thumbnail: "https://i.imgur.com/5WzGJBj.jpg",
+    release_date: "2017-04-14",
     photographer: null,
-    pic_type: "Performance",
-    quality: "Medium",
-    era: "Whole Lotta Red",
-    portion: "Half Body",
-    notes: "New York stop on the King Vamp tour",
-    source_links: ["https://example.com/ny-concert"]
+    pic_type: "Music Video",
+    quality: "Good",
+    era: "Pre-Die Lit",
+    portion: "Full Body",
+    notes: "Screenshot from the Magnolia music video.",
+    source_links: ["https://www.youtube.com/watch?v=oCveByMXd_0"]
   }
 ];
-
-// Extracting unique values for filter options
-export const getUniqueEras = (): string[] => {
-  return [...new Set(fitPicsData.map(pic => pic.era))];
-};
-
-export const getUniquePicTypes = (): string[] => {
-  return [...new Set(fitPicsData.map(pic => pic.pic_type))];
-};
-
-export const getUniqueQualities = (): string[] => {
-  return [...new Set(fitPicsData.map(pic => pic.quality))];
-};
-
-// Function to apply filters and get filtered data
-export const getFilteredFitPics = (filters: {
-  era?: string;
-  type?: string;
-  quality?: string;
-  query?: string;
-}): FitPic[] => {
-  return fitPicsData.filter(pic => {
-    // Apply era filter
-    if (filters.era && pic.era !== filters.era) {
-      return false;
-    }
-    
-    // Apply type filter
-    if (filters.type && pic.pic_type !== filters.type) {
-      return false;
-    }
-    
-    // Apply quality filter
-    if (filters.quality && pic.quality !== filters.quality) {
-      return false;
-    }
-    
-    // Apply search query
-    if (filters.query) {
-      const query = filters.query.toLowerCase();
-      const searchIn = [
-        pic.caption, 
-        pic.era, 
-        pic.pic_type, 
-        pic.photographer || '', 
-        pic.notes || ''
-      ].map(field => field.toLowerCase());
-      
-      if (!searchIn.some(field => field.includes(query))) {
-        return false;
-      }
-    }
-    
-    return true;
-  });
-};
