@@ -117,7 +117,7 @@ const Index = () => {
                 <Card key={album.id} className="bg-black/40 border border-white/10 text-white card-glow hover-scale overflow-hidden">
                   <div className="aspect-square overflow-hidden">
                     <img 
-                      src={album.imageUrl} 
+                      src={album.coverImage} 
                       alt={album.title} 
                       className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
                     />
