@@ -67,24 +67,12 @@ const Index = () => {
               </Card>
             </div>
             
-            <div className="text-center relative py-6">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="bg-gradient-to-r from-red-900/20 via-red-600/10 to-red-900/20 w-full h-32 blur-xl"></div>
-              </div>
-              <div className="vhs-glitch inline-block relative z-10">
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="bg-transparent border-2 border-red-500/80 text-white hover:bg-red-500/20 hover:border-red-500 transition-all duration-300 backdrop-blur-sm pulse-subtle red-glow group relative overflow-hidden"
-                >
-                  <Link to="/songs" className="flex items-center px-8 py-6 text-lg">
-                    <span className="vampire-font mr-2 relative z-10">BROWSE CATALOG</span>
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                    <span className="absolute inset-0 bg-gradient-to-r from-red-900/0 via-red-500/30 to-red-900/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  </Link>
-                </Button>
-              </div>
-              <div className="mt-4 text-red-500/70 text-xs uppercase tracking-widest animate-pulse">(CTRL+CLICK TO SHUFFLE)</div>
+            <div className="text-center">
+              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 hover-scale">
+                <Link to="/songs" className="flex items-center">
+                  Browse Catalog <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
             </div>
           </div>
           
