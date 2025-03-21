@@ -1,0 +1,63 @@
+
+/* Carti Catalog styling */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap');
+
+.carti-font {
+  font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.navbar {
+  background-color: #fff !important;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+}
+
+.navbar-brand {
+  font-family: 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.3rem;
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  color: #555 !important;
+  margin: 0.05rem;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-link:hover {
+  color: #000 !important;
+}
+
+/* Album spinning animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.album-img.spin {
+  animation: spin 30s linear infinite;
+}
+
+.album-img.spin-temp {
+  animation: spin 15s linear infinite;
+}

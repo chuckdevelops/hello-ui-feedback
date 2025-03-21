@@ -1,13 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React from 'react';
+import AlbumGrid from '../components/AlbumGrid';
+import AudioProvider from '../components/AudioProvider';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <AudioProvider>
+      <div className="min-h-screen flex flex-col bg-white">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 py-8">
+          <section className="mb-12">
+            <h1 className="text-4xl font-bold mb-6 carti-font text-center">PLAYBOI CARTI</h1>
+            <p className="text-lg text-center text-gray-600 mb-8">
+              Explore the discography of Playboi Carti, featuring his iconic albums and tracks
+            </p>
+            <AlbumGrid />
+          </section>
+        </main>
+        <Footer />
       </div>
-    </div>
+    </AudioProvider>
   );
 };
 
