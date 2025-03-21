@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { ChevronDown, Menu, X, Search, Discord } from 'lucide-react';
+import { ChevronDown, Menu, X, Search, MessageCircle } from 'lucide-react';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -83,7 +83,7 @@ const Header = () => {
                   className="nav-link flex items-center"
                   aria-label="Join our Discord server"
                 >
-                  <Discord className="h-5 w-5 hover:scale-110 transition-transform hover:text-indigo-400" />
+                  <MessageCircle className="h-5 w-5 hover:scale-110 transition-transform hover:text-indigo-400" />
                 </a>
               </li>
             </ul>
@@ -161,7 +161,7 @@ const Header = () => {
                     className="block py-2 text-white hover:text-indigo-400 flex items-center"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Discord className="h-5 w-5 mr-2" /> Discord
+                    <MessageCircle className="h-5 w-5 mr-2" /> Discord
                   </a>
                 </li>
                 <li>
