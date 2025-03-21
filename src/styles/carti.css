@@ -44,6 +44,31 @@
   color: #000 !important;
 }
 
+/* Peace sign styling */
+.peace-sign-nav {
+  margin-left: 1px;
+  display: flex;
+  align-items: center;
+}
+
+.peace-sign-nav a {
+  padding-left: 0;
+  padding-right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.peace-sign-nav img,
+.peace-sign-nav svg {
+  transform: scale(1);
+  transition: transform 0.2s ease;
+}
+
+.peace-sign-nav img:hover,
+.peace-sign-nav svg:hover {
+  transform: scale(1.1);
+}
+
 /* Album spinning animation */
 @keyframes spin {
   from {
@@ -60,6 +85,18 @@
 
 .album-img.spin-temp {
   animation: spin 15s linear infinite;
+}
+
+.album-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 2px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.album-icon.spin {
+  animation: spin 30s linear infinite;
 }
 
 /* Coming Soon page styles */
@@ -81,4 +118,3 @@
 .back-link a {
   transition: color 0.3s ease;
 }
-
