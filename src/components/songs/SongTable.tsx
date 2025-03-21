@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Disc, Info, Volume2, Tag, Calendar, Clock } from 'lucide-react';
@@ -43,12 +42,12 @@ interface SongTableProps {
   handleSort: (field: string) => void;
 }
 
-const SongTable: React.FC<SongTableProps> = ({ 
+const SongTable = ({ 
   songs, 
   sortField, 
   sortDirection, 
   handleSort 
-}) => {
+}: SongTableProps) => {
   const getSortIcon = (field: string) => {
     if (sortField !== field) return null;
     return sortDirection === 'asc' ? <ChevronUp className="h-3 w-3 ml-1" /> : <ChevronDown className="h-3 w-3 ml-1" />;

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { X } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
@@ -25,7 +24,7 @@ interface ActiveFiltersProps {
   clearFilters: () => void;
 }
 
-const ActiveFilters: React.FC<ActiveFiltersProps> = ({
+const ActiveFilters = ({
   eraFilter,
   typeFilter,
   tabFilter,
@@ -44,7 +43,7 @@ const ActiveFilters: React.FC<ActiveFiltersProps> = ({
   setYearFilter,
   setPopularityFilter,
   clearFilters
-}) => {
+}: ActiveFiltersProps) => {
   if (activeFilters === 0) return null;
 
   return (
