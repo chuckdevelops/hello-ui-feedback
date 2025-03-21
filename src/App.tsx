@@ -16,16 +16,18 @@ function App() {
   return (
     <div className="bg-black min-h-screen">
       <Router>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/songs" element={<SongList />} />
-          <Route path="/songs/:id" element={<SongDetail />} />
-          <Route path="/fit-pics" element={<FitPics />} />
-          <Route path="/interviews" element={<Interviews />} />
-          <Route path="/social-media" element={<SocialMedia />} />
-          <Route path="/coming-soon" element={<ComingSoon />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <div className="pt-16"> {/* Added padding-top to account for fixed header */}
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/songs" element={<SongList />} />
+            <Route path="/songs/:id" element={<SongDetail />} />
+            <Route path="/fit-pics" element={<FitPics />} />
+            <Route path="/interviews" element={<Interviews />} />
+            <Route path="/social-media" element={<SocialMedia />} />
+            <Route path="/coming-soon" element={<ComingSoon />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
         <Toaster />
       </Router>
     </div>

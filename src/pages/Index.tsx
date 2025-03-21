@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { albums } from '@/data/albums';
+import { ArrowRight, Music, Calendar, ListMusic } from 'lucide-react';
 
 // Mock data for recent songs
 const recentSongs = [
@@ -40,54 +41,58 @@ const Index = () => {
   
   return (
     <AudioProvider>
-      <div className="min-h-screen flex flex-col bg-white">
+      <div className="min-h-screen flex flex-col bg-black text-white">
         <Header />
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="flex-grow container mx-auto px-4 py-8 mt-8 fade-in">
           {/* Hero Section */}
-          <div className="bg-gray-100 p-6 rounded-lg mb-8 mx-auto max-w-4xl">
-            <h1 className="text-4xl font-bold mb-2 carti-font text-center">Playboi Carti Music Catalog</h1>
-            <p className="text-center text-gray-600 mb-6">
+          <div className="glass rounded-lg p-8 mb-12 mx-auto max-w-4xl scale-in">
+            <h1 className="text-4xl font-bold mb-4 carti-font text-center text-glow">PLAYBOI CARTI MUSIC CATALOG</h1>
+            <p className="text-center text-white/70 mb-8 max-w-xl mx-auto">
               Your comprehensive resource for Playboi Carti's entire discography.
             </p>
-            <hr className="my-4" />
+            <hr className="my-6 border-white/10" />
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
-              <Card>
-                <CardContent className="text-center py-6">
-                  <h2 className="text-4xl font-bold">{recentSongs.length}</h2>
-                  <p className="text-gray-500">Total Songs & Videos</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <Card className="bg-black/40 border border-white/10 text-white card-glow">
+                <CardContent className="text-center py-8 flex flex-col items-center">
+                  <ListMusic className="mb-3 h-8 w-8 text-white/60" />
+                  <h2 className="text-4xl font-bold text-white">{recentSongs.length}</h2>
+                  <p className="text-white/60">Total Songs & Videos</p>
                 </CardContent>
               </Card>
-              <Card>
-                <CardContent className="text-center py-6">
-                  <h2 className="text-4xl font-bold">{eraCount}</h2>
-                  <p className="text-gray-500">Distinct Eras</p>
+              <Card className="bg-black/40 border border-white/10 text-white card-glow">
+                <CardContent className="text-center py-8 flex flex-col items-center">
+                  <Calendar className="mb-3 h-8 w-8 text-white/60" />
+                  <h2 className="text-4xl font-bold text-white">{eraCount}</h2>
+                  <p className="text-white/60">Distinct Eras</p>
                 </CardContent>
               </Card>
             </div>
             
             <div className="text-center">
-              <Button asChild size="lg">
-                <Link to="/songs">Browse Catalog</Link>
+              <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 hover-scale">
+                <Link to="/songs" className="flex items-center">
+                  Browse Catalog <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>
           
           {/* Content Sections */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
             {/* Recently Leaked */}
             <div className="lg:col-span-4">
-              <Card>
+              <Card className="bg-black/40 border border-white/10 text-white h-full card-glow">
                 <CardHeader>
-                  <h3 className="text-xl font-semibold">Recently Leaked</h3>
+                  <h3 className="text-xl font-semibold text-white">Recently Leaked</h3>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <div className="space-y-1">
+                  <div className="space-y-2">
                     {recentSongs.slice(0, 5).map(song => (
                       <Link 
                         key={song.id}
                         to={`/songs/${song.id}`}
-                        className="block p-3 border border-gray-100 rounded-md hover:bg-gray-50 transition-colors"
+                        className="block p-3 border border-white/10 rounded-md hover:bg-white/5 transition-colors"
                       >
                         {song.name}
                       </Link>
@@ -99,29 +104,29 @@ const Index = () => {
             
             {/* Sheet Tab Overview */}
             <div className="lg:col-span-8">
-              <Card>
+              <Card className="bg-black/40 border border-white/10 text-white h-full card-glow">
                 <CardHeader>
-                  <h3 className="text-xl font-semibold">Sheet Tab Overview</h3>
+                  <h3 className="text-xl font-semibold text-white">Sheet Tab Overview</h3>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <p className="text-gray-600 mb-4">Songs are organized into various sheet tabs based on their categorization:</p>
+                  <p className="text-white/70 mb-4">Songs are organized into various sheet tabs based on their categorization:</p>
                   <div className="space-y-2">
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       🏆 Grails - Top tier unreleased songs
                     </div>
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       🥇 Wanted - Highly anticipated leaks
                     </div>
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       ⭐ Best Of - High quality tracks
                     </div>
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       ✨ Special - Noteworthy tracks
                     </div>
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       Released - Official releases
                     </div>
-                    <div className="p-3 border border-gray-100 rounded-md">
+                    <div className="p-3 border border-white/10 rounded-md bg-white/5">
                       Unreleased - Unreleased songs
                     </div>
                   </div>
@@ -131,49 +136,49 @@ const Index = () => {
           </div>
           
           {/* Recent Songs Table */}
-          <Card className="mt-8">
+          <Card className="bg-black/40 border border-white/10 text-white mb-10 card-glow">
             <CardHeader>
-              <h3 className="text-xl font-semibold">Recent Songs</h3>
+              <h3 className="text-xl font-semibold text-white">Recent Songs</h3>
             </CardHeader>
             <CardContent className="pt-0">
               <div className="overflow-x-auto">
                 <table className="w-full border-collapse">
-                  <thead className="bg-gray-900 text-white">
+                  <thead className="bg-white/5">
                     <tr>
-                      <th className="px-4 py-3 text-left">Name</th>
-                      <th className="px-4 py-3 text-left">Era</th>
-                      <th className="px-4 py-3 text-left">Sheet Tab</th>
-                      <th className="px-4 py-3 text-left">Type</th>
-                      <th className="px-4 py-3 text-left">Quality</th>
-                      <th className="px-4 py-3 text-left">Date</th>
+                      <th className="px-4 py-3 text-left text-white">Name</th>
+                      <th className="px-4 py-3 text-left text-white">Era</th>
+                      <th className="px-4 py-3 text-left text-white">Sheet Tab</th>
+                      <th className="px-4 py-3 text-left text-white">Type</th>
+                      <th className="px-4 py-3 text-left text-white">Quality</th>
+                      <th className="px-4 py-3 text-left text-white">Date</th>
                     </tr>
                   </thead>
                   <tbody>
                     {recentSongs.map(song => (
-                      <tr key={song.id} className="border-b hover:bg-gray-50">
+                      <tr key={song.id} className="border-b border-white/10 hover:bg-white/5">
                         <td className="px-4 py-3">
-                          <Link to={`/songs/${song.id}`} className="text-blue-600 hover:underline">
+                          <Link to={`/songs/${song.id}`} className="text-white hover:text-white/80 transition-colors">
                             {song.name}
                           </Link>
                         </td>
-                        <td className="px-4 py-3">
-                          {song.era || <em className="text-gray-500">Unknown</em>}
+                        <td className="px-4 py-3 text-white/70">
+                          {song.era || <em className="text-white/40">Unknown</em>}
                         </td>
                         <td className="px-4 py-3">
                           {song.primary_tab_name && song.primary_tab_name !== "Unknown" ? (
                             <>
-                              {song.primary_tab_name}
+                              <span className="text-white">{song.primary_tab_name}</span>
                               {song.subsection_name && (
-                                <small className="text-gray-500 ml-1">({song.subsection_name})</small>
+                                <small className="text-white/50 ml-1">({song.subsection_name})</small>
                               )}
                             </>
                           ) : (
-                            <em className="text-gray-500">Unknown</em>
+                            <em className="text-white/40">Unknown</em>
                           )}
                         </td>
-                        <td className="px-4 py-3">{formatType(song.type)}</td>
-                        <td className="px-4 py-3">{song.quality}</td>
-                        <td className="px-4 py-3">{song.leak_date}</td>
+                        <td className="px-4 py-3 text-white/70">{formatType(song.type)}</td>
+                        <td className="px-4 py-3 text-white/70">{song.quality}</td>
+                        <td className="px-4 py-3 text-white/70">{song.leak_date}</td>
                       </tr>
                     ))}
                   </tbody>

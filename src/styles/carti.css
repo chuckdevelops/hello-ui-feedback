@@ -14,7 +14,7 @@
   background-color: #000 !important;
   border-bottom: 1px solid #222;
   padding: 1rem 0;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 15px rgba(0,0,0,0.3);
 }
 
 .navbar-brand {
@@ -32,7 +32,7 @@
 }
 
 .nav-link {
-  color: #aaa !important;
+  color: #999 !important;
   margin: 0.05rem;
   line-height: 1.5;
   display: flex;
@@ -123,9 +123,9 @@
 
 /* Custom Badge Variants */
 [data-radix-badge-variant="success"] {
-  background-color: rgba(21, 128, 61, 0.2);
-  color: #22c55e;
-  border: 1px solid rgba(21, 128, 61, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* Embed responsive styling */
