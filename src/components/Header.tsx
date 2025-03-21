@@ -56,21 +56,12 @@ const Header = () => {
               </li>
               <li className="nav-item peace-sign-nav">
                 <Link to="/coming-soon" className="nav-link flex items-center">
-                  <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    className="h-6 w-6 hover:scale-110 transition-transform" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="#9b87f5" 
-                    strokeWidth="2" 
-                    strokeLinecap="round" 
-                    strokeLinejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="12" y1="2" x2="12" y2="12" />
-                    <path d="M12 12 8 16" />
-                    <path d="M12 12 16 16" />
-                  </svg>
+                  <img 
+                    src="/lovable-uploads/42459934-4b78-4834-9817-96218cc02c96.png" 
+                    alt="Peace Sign" 
+                    className="h-6 w-6 hover:scale-110 transition-transform"
+                    style={{ filter: "invert(70%) sepia(50%) saturate(500%) hue-rotate(220deg) brightness(100%)" }}
+                  />
                 </Link>
               </li>
             </ul>
