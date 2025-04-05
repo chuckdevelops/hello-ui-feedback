@@ -1,6 +1,6 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, ThreeEvent } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera, Text } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -30,12 +30,12 @@ const CartiSilhouette = ({
   });
   
   // Handle pointer move for face tracking
-  const handlePointerMove = (e: React.PointerEvent) => {
+  const handlePointerMove = (e: ThreeEvent<PointerEvent>) => {
     if (!mesh.current) return;
     
-    // Calculate normalized position (-1 to 1)
-    const x = (e.clientX / window.innerWidth) * 2 - 1;
-    const y = -((e.clientY / window.innerHeight) * 2 - 1);
+    // Calculate normalized position (-1 to 1) using pointer coordinates
+    const x = (e.point.x / window.innerWidth) * 2 - 1;
+    const y = -((e.point.y / window.innerHeight) * 2 - 1);
     
     // Set target rotation based on mouse position
     setTargetRotation({
