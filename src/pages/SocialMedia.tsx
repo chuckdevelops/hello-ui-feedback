@@ -1,6 +1,5 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { 
   Table, 
   TableHeader, 
@@ -18,20 +17,19 @@ import {
 } from '@/components/ui/tooltip';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { socialMediaAccounts } from '@/data/socialmedia';
-import { SocialMediaAccount, SocialMediaFilters } from '@/types/socialmedia';
+import { socialMediaAccounts, platforms, eras } from '@/data/socialmedia';
+import { SocialMediaAccount } from '@/types/socialmedia';
 import { 
   ToggleGroup, 
   ToggleGroupItem 
 } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
-import { AlertCircle, Instagram, Twitter } from 'lucide-react';
+import { AlertCircle, Instagram, Twitter, Facebook, Users } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const SocialMedia = () => {
-  const [accounts, setSocialMediaAccounts] = useState<SocialMediaAccount[]>([]);
   const [filteredAccounts, setFilteredAccounts] = useState<SocialMediaAccount[]>([]);
-  const [filters, setFilters] = useState<SocialMediaFilters>({
+  const [filters, setFilters] = useState({
     era: 'all',
     platform: 'all',
     active: 'all',
@@ -43,13 +41,8 @@ const SocialMedia = () => {
   const itemsPerPage = 10;
   
   useEffect(() => {
-    // Fetch data
-    setSocialMediaAccounts(socialMediaAccounts);
-  }, []);
-  
-  useEffect(() => {
     // Apply filters
-    let results = accounts;
+    let results = socialMediaAccounts;
     
     // Filter by era
     if (filters.era !== 'all') {
@@ -78,7 +71,7 @@ const SocialMedia = () => {
     }
     
     setFilteredAccounts(results);
-  }, [accounts, filters]);
+  }, [filters]);
   
   // Get current page items
   const indexOfLastItem = filters.page * itemsPerPage;
@@ -100,8 +93,10 @@ const SocialMedia = () => {
       case 'twitter':
       case 'x (twitter)':
         return <Twitter className="h-4 w-4" />;
+      case 'facebook':
+        return <Facebook className="h-4 w-4" />;
       default:
-        return null;
+        return <Users className="h-4 w-4" />;
     }
   };
 
@@ -130,18 +125,15 @@ const SocialMedia = () => {
                   <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
                     All
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Self-Titled
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Die Lit
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    WLR
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    NARCISSIST
-                  </ToggleGroupItem>
+                  {eras.map((era) => (
+                    <ToggleGroupItem 
+                      key={era} 
+                      value={era} 
+                      className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white"
+                    >
+                      {era}
+                    </ToggleGroupItem>
+                  ))}
                 </ToggleGroup>
               </div>
               
@@ -157,15 +149,15 @@ const SocialMedia = () => {
                   <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
                     All
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Instagram" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Instagram
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="X (Twitter)" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Twitter
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="Snapchat" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Snapchat
-                  </ToggleGroupItem>
+                  {platforms.map((platform) => (
+                    <ToggleGroupItem 
+                      key={platform} 
+                      value={platform} 
+                      className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white"
+                    >
+                      {platform}
+                    </ToggleGroupItem>
+                  ))}
                 </ToggleGroup>
               </div>
               
@@ -244,10 +236,10 @@ const SocialMedia = () => {
                             rel="noopener noreferrer"
                             className="text-purple-400 hover:text-purple-300 transition-colors"
                           >
-                            @{account.username}
+                            {account.username}
                           </a>
                         ) : (
-                          <span>@{account.username}</span>
+                          <span>{account.username}</span>
                         )}
                       </TableCell>
                       <TableCell>

@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/tooltip';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { interviews } from '@/data/interviews';
+import { interviews, eras, interviewTypes } from '@/data/interviews';
 import { Interview } from '@/types/interviews';
 import { 
   ToggleGroup, 
@@ -28,7 +28,6 @@ import { Input } from '@/components/ui/input';
 import { Card } from '@/components/ui/card';
 
 const Interviews = () => {
-  const [interviews, setInterviews] = useState<Interview[]>([]);
   const [filteredInterviews, setFilteredInterviews] = useState<Interview[]>([]);
   const [filters, setFilters] = useState({
     era: 'all',
@@ -39,11 +38,6 @@ const Interviews = () => {
   
   // Items per page
   const itemsPerPage = 10;
-  
-  useEffect(() => {
-    // Fetch data
-    setInterviews(interviews);
-  }, []);
   
   useEffect(() => {
     // Apply filters
@@ -69,7 +63,7 @@ const Interviews = () => {
     }
     
     setFilteredInterviews(results);
-  }, [interviews, filters]);
+  }, [filters]);
   
   // Get current page items
   const indexOfLastItem = filters.page * itemsPerPage;
@@ -109,18 +103,15 @@ const Interviews = () => {
                   <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
                     All
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Self-Titled
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Die Lit
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    WLR
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    NARCISSIST
-                  </ToggleGroupItem>
+                  {eras.map((era) => (
+                    <ToggleGroupItem 
+                      key={era} 
+                      value={era}
+                      className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white"
+                    >
+                      {era}
+                    </ToggleGroupItem>
+                  ))}
                 </ToggleGroup>
               </div>
               
@@ -136,17 +127,20 @@ const Interviews = () => {
                   <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
                     All
                   </ToggleGroupItem>
-                  <ToggleGroupItem value="Text" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Text
-                  </ToggleGroupItem>
-                  <ToggleGroupItem value="Video" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                    Video
-                  </ToggleGroupItem>
+                  {interviewTypes.map((type) => (
+                    <ToggleGroupItem 
+                      key={type} 
+                      value={type}
+                      className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white"
+                    >
+                      {type}
+                    </ToggleGroupItem>
+                  ))}
                 </ToggleGroup>
               </div>
               
               {/* Search */}
-              <div className="md:col-span-3">
+              <div className="md:col-span-1">
                 <h3 className="text-sm font-medium mb-2 text-zinc-400">Search</h3>
                 <Input 
                   type="search" 
@@ -210,12 +204,23 @@ const Interviews = () => {
                         {interview.outlet}
                       </TableCell>
                       <TableCell>
-                        <Badge 
-                          variant={interview.interview_type === "Video" ? "outline" : "secondary"} 
-                          className={interview.interview_type === "Video" ? "bg-black/60 border-white/20" : "bg-white/10 hover:bg-white/15"}
-                        >
-                          {interview.interview_type}
-                        </Badge>
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger asChild>
+                              <Badge 
+                                variant={interview.interview_type === "Video" ? "outline" : "secondary"} 
+                                className={interview.interview_type === "Video" ? "bg-black/60 border-white/20" : "bg-white/10 hover:bg-white/15"}
+                              >
+                                {interview.interview_type}
+                              </Badge>
+                            </TooltipTrigger>
+                            <TooltipContent className="bg-black/90 border-white/10 text-white/90">
+                              {interview.interview_type === "Video" 
+                                ? "Video interview" 
+                                : `${interview.interview_type} interview`}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
                       </TableCell>
                     </TableRow>
                   ))
