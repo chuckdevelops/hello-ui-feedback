@@ -8,6 +8,7 @@ import { Card, CardHeader, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { albums } from '@/data/albums';
 import { ArrowRight } from 'lucide-react';
+import CartiFigure from '../components/CartiFigure';
 
 // Mock data for recent songs
 const recentSongs = [
@@ -44,12 +45,18 @@ const Index = () => {
       <div className="min-h-screen flex flex-col bg-black text-white">
         <Header />
         <main className="flex-grow container mx-auto px-4 py-8 mt-8 fade-in">
-          {/* Hero Section */}
+          {/* Hero Section with 3D Carti Figure */}
           <div className="glass rounded-lg p-8 mb-12 mx-auto max-w-4xl scale-in">
             <h1 className="text-4xl font-bold mb-4 carti-font text-center text-glow">PLAYBOI CARTI MUSIC CATALOG</h1>
-            <p className="text-center text-white/70 mb-8 max-w-xl mx-auto">
+            <p className="text-center text-white/70 mb-6 max-w-xl mx-auto">
               Your comprehensive resource for Playboi Carti's entire discography.
             </p>
+            
+            {/* Interactive 3D Carti Figure */}
+            <div className="mb-6">
+              <CartiFigure />
+            </div>
+            
             <hr className="my-6 border-white/10" />
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
