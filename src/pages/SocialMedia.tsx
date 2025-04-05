@@ -17,6 +17,7 @@ import {
   TooltipProvider
 } from '@/components/ui/tooltip';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { socialMediaAccounts } from '@/data/socialmedia';
 import { SocialMediaAccount, SocialMediaFilters } from '@/types/socialmedia';
 import { 
@@ -25,6 +26,7 @@ import {
 } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
 import { AlertCircle, Instagram, Twitter } from 'lucide-react';
+import { Card } from '@/components/ui/card';
 
 const SocialMedia = () => {
   const [accounts, setSocialMediaAccounts] = useState<SocialMediaAccount[]>([]);
@@ -107,112 +109,114 @@ const SocialMedia = () => {
     <div className="min-h-screen bg-black text-white">
       <Header />
       
-      <main className="container px-4 py-8 mx-auto">
+      <main className="container px-4 py-8 mx-auto max-w-7xl">
         <h1 className="text-4xl font-bold mb-8 text-center carti-font tracking-wide text-gradient">CARTI SOCIAL MEDIA ACCOUNTS</h1>
         
         {/* Filters */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-8 shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-zinc-200">Filters</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Era Filter */}
-            <div>
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Era</h3>
-              <ToggleGroup 
-                type="single" 
-                value={filters.era} 
-                onValueChange={(value) => value && setFilters(prev => ({ ...prev, era: value, page: 1 }))}
-                className="justify-start flex-wrap"
-              >
-                <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Self-Titled
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Die Lit
-                </ToggleGroupItem>
-                <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  WLR
-                </ToggleGroupItem>
-                <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  NARCISSIST
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
+        <Card className="glass mb-8 shadow-lg">
+          <div className="p-5">
+            <h2 className="text-xl font-semibold mb-4 text-zinc-200">Filters</h2>
             
-            {/* Platform Filter */}
-            <div>
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Platform</h3>
-              <ToggleGroup 
-                type="single" 
-                value={filters.platform} 
-                onValueChange={(value) => value && setFilters(prev => ({ ...prev, platform: value, page: 1 }))}
-                className="justify-start flex-wrap"
-              >
-                <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Instagram" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Instagram
-                </ToggleGroupItem>
-                <ToggleGroupItem value="X (Twitter)" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Twitter
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Snapchat" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Snapchat
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
-            
-            {/* Status Filter */}
-            <div>
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Status</h3>
-              <ToggleGroup 
-                type="single" 
-                value={filters.active} 
-                onValueChange={(value) => value && setFilters(prev => ({ ...prev, active: value, page: 1 }))}
-                className="justify-start"
-              >
-                <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="active" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Active
-                </ToggleGroupItem>
-                <ToggleGroupItem value="inactive" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Inactive
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
-            
-            {/* Search */}
-            <div className="md:col-span-3">
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Search</h3>
-              <Input 
-                type="search" 
-                placeholder="Search by username, platform, or notes..." 
-                value={filters.query}
-                onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value, page: 1 }))}
-                className="bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Era Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Era</h3>
+                <ToggleGroup 
+                  type="single" 
+                  value={filters.era} 
+                  onValueChange={(value) => value && setFilters(prev => ({ ...prev, era: value, page: 1 }))}
+                  className="justify-start flex-wrap"
+                >
+                  <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Self-Titled
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Die Lit
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    WLR
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    NARCISSIST
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
+              
+              {/* Platform Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Platform</h3>
+                <ToggleGroup 
+                  type="single" 
+                  value={filters.platform} 
+                  onValueChange={(value) => value && setFilters(prev => ({ ...prev, platform: value, page: 1 }))}
+                  className="justify-start flex-wrap"
+                >
+                  <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Instagram" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Instagram
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="X (Twitter)" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Twitter
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Snapchat" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Snapchat
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
+              
+              {/* Status Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Status</h3>
+                <ToggleGroup 
+                  type="single" 
+                  value={filters.active} 
+                  onValueChange={(value) => value && setFilters(prev => ({ ...prev, active: value, page: 1 }))}
+                  className="justify-start"
+                >
+                  <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="active" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Active
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="inactive" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Inactive
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
+              
+              {/* Search */}
+              <div className="md:col-span-3">
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Search</h3>
+                <Input 
+                  type="search" 
+                  placeholder="Search by username, platform, or notes..." 
+                  value={filters.query}
+                  onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value, page: 1 }))}
+                  className="bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Card>
         
         {/* Results */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-lg">
-          <div className="px-6 py-4 border-b border-zinc-800 flex justify-between items-center">
+        <Card className="glass overflow-hidden shadow-lg">
+          <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center">
             <h2 className="text-xl font-semibold text-zinc-200">Results</h2>
-            <Badge variant="outline" className="bg-zinc-800 text-zinc-300">
+            <Badge variant="outline" className="bg-black/60 border-white/20 text-white/80">
               {filteredAccounts.length} accounts found
             </Badge>
           </div>
           
           <div className="p-3">
             <Table>
-              <TableHeader className="bg-zinc-950">
+              <TableHeader className="bg-black/60">
                 <TableRow>
                   <TableHead className="text-zinc-300">Platform</TableHead>
                   <TableHead className="text-zinc-300">Username</TableHead>
@@ -225,7 +229,7 @@ const SocialMedia = () => {
               <TableBody>
                 {currentItems.length > 0 ? (
                   currentItems.map((account) => (
-                    <TableRow key={account.id} className="border-zinc-800 hover:bg-zinc-800/50">
+                    <TableRow key={account.id} className="border-white/5 hover:bg-white/5">
                       <TableCell className="text-zinc-300 whitespace-nowrap">
                         <div className="flex items-center gap-2">
                           {getPlatformIcon(account.platform)}
@@ -247,7 +251,7 @@ const SocialMedia = () => {
                         )}
                       </TableCell>
                       <TableCell>
-                        <Badge variant={account.era === "WLR" ? "outline" : "secondary"} className="bg-zinc-800">
+                        <Badge variant="outline" className="bg-black/60 border-white/20 text-white/80">
                           {account.era}
                         </Badge>
                       </TableCell>
@@ -257,12 +261,12 @@ const SocialMedia = () => {
                             <TooltipTrigger asChild>
                               <Badge 
                                 variant={account.still_used ? "outline" : "secondary"} 
-                                className={account.still_used ? "bg-zinc-900 border-green-600 text-green-500" : "bg-zinc-800 text-zinc-400"}
+                                className={account.still_used ? "bg-black/60 border-green-600/50 text-green-500" : "bg-white/5 text-zinc-400"}
                               >
                                 {account.still_used ? 'Active' : 'Inactive'}
                               </Badge>
                             </TooltipTrigger>
-                            <TooltipContent>
+                            <TooltipContent className="bg-black/90 border-white/10 text-white/90">
                               {account.still_used 
                                 ? 'This account is currently in use' 
                                 : 'This account is no longer in use'}
@@ -280,7 +284,7 @@ const SocialMedia = () => {
                               <TooltipTrigger>
                                 <AlertCircle className="h-4 w-4 text-zinc-400 hover:text-zinc-300" />
                               </TooltipTrigger>
-                              <TooltipContent className="max-w-xs bg-zinc-900 border-zinc-700 text-zinc-300">
+                              <TooltipContent className="max-w-xs bg-black/90 border-white/10 text-white/90">
                                 {account.notes}
                               </TooltipContent>
                             </Tooltip>
@@ -304,15 +308,15 @@ const SocialMedia = () => {
           
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="px-4 py-4 border-t border-zinc-800 flex justify-center">
+            <div className="px-4 py-4 border-t border-white/10 flex justify-center">
               <div className="flex space-x-1">
                 <button
                   onClick={() => handlePageChange(1)}
                   disabled={filters.page === 1}
                   className={`px-3 py-1 rounded ${
                     filters.page === 1
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   First
@@ -322,13 +326,13 @@ const SocialMedia = () => {
                   disabled={filters.page === 1}
                   className={`px-3 py-1 rounded ${
                     filters.page === 1
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Prev
                 </button>
-                <span className="px-3 py-1 bg-zinc-800 text-zinc-300 rounded">
+                <span className="px-3 py-1 glass text-zinc-300 rounded">
                   Page {filters.page} of {totalPages}
                 </span>
                 <button
@@ -336,8 +340,8 @@ const SocialMedia = () => {
                   disabled={filters.page === totalPages}
                   className={`px-3 py-1 rounded ${
                     filters.page === totalPages
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Next
@@ -347,8 +351,8 @@ const SocialMedia = () => {
                   disabled={filters.page === totalPages}
                   className={`px-3 py-1 rounded ${
                     filters.page === totalPages
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed' 
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed' 
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Last
@@ -356,8 +360,10 @@ const SocialMedia = () => {
               </div>
             </div>
           )}
-        </div>
+        </Card>
       </main>
+      
+      <Footer />
     </div>
   );
 };

@@ -17,6 +17,7 @@ import {
   TooltipProvider
 } from '@/components/ui/tooltip';
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import { interviews } from '@/data/interviews';
 import { Interview } from '@/types/interviews';
 import { 
@@ -24,6 +25,7 @@ import {
   ToggleGroupItem 
 } from '@/components/ui/toggle-group';
 import { Input } from '@/components/ui/input';
+import { Card } from '@/components/ui/card';
 
 const Interviews = () => {
   const [interviews, setInterviews] = useState<Interview[]>([]);
@@ -86,88 +88,90 @@ const Interviews = () => {
     <div className="min-h-screen bg-black text-white">
       <Header />
       
-      <main className="container px-4 py-8 mx-auto">
+      <main className="container px-4 py-8 mx-auto max-w-7xl">
         <h1 className="text-4xl font-bold mb-8 text-center carti-font tracking-wide text-gradient">CARTI INTERVIEWS</h1>
         
         {/* Filters */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-lg p-5 mb-8 shadow-lg">
-          <h2 className="text-xl font-semibold mb-4 text-zinc-200">Filters</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Era Filter */}
-            <div>
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Era</h3>
-              <ToggleGroup 
-                type="single" 
-                value={filters.era} 
-                onValueChange={(value) => value && setFilters(prev => ({ ...prev, era: value, page: 1 }))}
-                className="justify-start flex-wrap"
-              >
-                <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Self-Titled
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Die Lit
-                </ToggleGroupItem>
-                <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  WLR
-                </ToggleGroupItem>
-                <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  NARCISSIST
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
+        <Card className="glass mb-8 shadow-lg">
+          <div className="p-5">
+            <h2 className="text-xl font-semibold mb-4 text-zinc-200">Filters</h2>
             
-            {/* Type Filter */}
-            <div>
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Type</h3>
-              <ToggleGroup 
-                type="single" 
-                value={filters.type} 
-                onValueChange={(value) => value && setFilters(prev => ({ ...prev, type: value, page: 1 }))}
-                className="justify-start flex-wrap"
-              >
-                <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  All
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Text" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Text
-                </ToggleGroupItem>
-                <ToggleGroupItem value="Video" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
-                  Video
-                </ToggleGroupItem>
-              </ToggleGroup>
-            </div>
-            
-            {/* Search */}
-            <div className="md:col-span-3">
-              <h3 className="text-sm font-medium mb-2 text-zinc-400">Search</h3>
-              <Input 
-                type="search" 
-                placeholder="Search by title or outlet..." 
-                value={filters.query}
-                onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value, page: 1 }))}
-                className="bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Era Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Era</h3>
+                <ToggleGroup 
+                  type="single" 
+                  value={filters.era} 
+                  onValueChange={(value) => value && setFilters(prev => ({ ...prev, era: value, page: 1 }))}
+                  className="justify-start flex-wrap"
+                >
+                  <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Self-Titled" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Self-Titled
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Die Lit" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Die Lit
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="WLR" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    WLR
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="NARCISSIST" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    NARCISSIST
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
+              
+              {/* Type Filter */}
+              <div>
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Type</h3>
+                <ToggleGroup 
+                  type="single" 
+                  value={filters.type} 
+                  onValueChange={(value) => value && setFilters(prev => ({ ...prev, type: value, page: 1 }))}
+                  className="justify-start flex-wrap"
+                >
+                  <ToggleGroupItem value="all" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    All
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Text" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Text
+                  </ToggleGroupItem>
+                  <ToggleGroupItem value="Video" className="bg-zinc-800 text-xs data-[state=on]:bg-purple-900 data-[state=on]:text-white">
+                    Video
+                  </ToggleGroupItem>
+                </ToggleGroup>
+              </div>
+              
+              {/* Search */}
+              <div className="md:col-span-3">
+                <h3 className="text-sm font-medium mb-2 text-zinc-400">Search</h3>
+                <Input 
+                  type="search" 
+                  placeholder="Search by title or outlet..." 
+                  value={filters.query}
+                  onChange={(e) => setFilters(prev => ({ ...prev, query: e.target.value, page: 1 }))}
+                  className="bg-zinc-800 border-zinc-700 text-white placeholder:text-zinc-500"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Card>
         
         {/* Results */}
-        <div className="bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden shadow-lg">
-          <div className="px-6 py-4 border-b border-zinc-800 flex justify-between items-center">
+        <Card className="glass overflow-hidden shadow-lg">
+          <div className="px-6 py-4 border-b border-white/10 flex justify-between items-center">
             <h2 className="text-xl font-semibold text-zinc-200">Results</h2>
-            <Badge variant="outline" className="bg-zinc-800 text-zinc-300">
+            <Badge variant="outline" className="bg-black/60 border-white/20 text-white/80">
               {filteredInterviews.length} interviews found
             </Badge>
           </div>
           
           <div className="p-3">
             <Table>
-              <TableHeader className="bg-zinc-950">
+              <TableHeader className="bg-black/60">
                 <TableRow>
                   <TableHead className="text-zinc-300">Title</TableHead>
                   <TableHead className="text-zinc-300">Date</TableHead>
@@ -179,7 +183,7 @@ const Interviews = () => {
               <TableBody>
                 {currentItems.length > 0 ? (
                   currentItems.map((interview) => (
-                    <TableRow key={interview.id} className="border-zinc-800 hover:bg-zinc-800/50">
+                    <TableRow key={interview.id} className="border-white/5 hover:bg-white/5">
                       <TableCell className="font-medium">
                         {interview.link ? (
                           <a 
@@ -198,7 +202,7 @@ const Interviews = () => {
                         {interview.date}
                       </TableCell>
                       <TableCell>
-                        <Badge variant="outline" className="bg-zinc-800">
+                        <Badge variant="outline" className="bg-black/60 border-white/20 text-white/80">
                           {interview.era}
                         </Badge>
                       </TableCell>
@@ -208,7 +212,7 @@ const Interviews = () => {
                       <TableCell>
                         <Badge 
                           variant={interview.interview_type === "Video" ? "outline" : "secondary"} 
-                          className={interview.interview_type === "Video" ? "bg-zinc-900 border-zinc-700" : "bg-zinc-800"}
+                          className={interview.interview_type === "Video" ? "bg-black/60 border-white/20" : "bg-white/10 hover:bg-white/15"}
                         >
                           {interview.interview_type}
                         </Badge>
@@ -228,15 +232,15 @@ const Interviews = () => {
           
           {/* Pagination */}
           {totalPages > 1 && (
-            <div className="px-4 py-4 border-t border-zinc-800 flex justify-center">
+            <div className="px-4 py-4 border-t border-white/10 flex justify-center">
               <div className="flex space-x-1">
                 <button
                   onClick={() => handlePageChange(1)}
                   disabled={filters.page === 1}
                   className={`px-3 py-1 rounded ${
                     filters.page === 1
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   First
@@ -246,13 +250,13 @@ const Interviews = () => {
                   disabled={filters.page === 1}
                   className={`px-3 py-1 rounded ${
                     filters.page === 1
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Prev
                 </button>
-                <span className="px-3 py-1 bg-zinc-800 text-zinc-300 rounded">
+                <span className="px-3 py-1 glass text-zinc-300 rounded">
                   Page {filters.page} of {totalPages}
                 </span>
                 <button
@@ -260,8 +264,8 @@ const Interviews = () => {
                   disabled={filters.page === totalPages}
                   className={`px-3 py-1 rounded ${
                     filters.page === totalPages
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed'
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Next
@@ -271,8 +275,8 @@ const Interviews = () => {
                   disabled={filters.page === totalPages}
                   className={`px-3 py-1 rounded ${
                     filters.page === totalPages
-                      ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed' 
-                      : 'bg-zinc-800 text-zinc-300 hover:bg-zinc-700'
+                      ? 'bg-black/40 text-zinc-500 cursor-not-allowed' 
+                      : 'glass text-zinc-300 hover:bg-white/10'
                   }`}
                 >
                   Last
@@ -280,8 +284,10 @@ const Interviews = () => {
               </div>
             </div>
           )}
-        </div>
+        </Card>
       </main>
+      
+      <Footer />
     </div>
   );
 };
